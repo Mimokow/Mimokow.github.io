@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shared.css">
+    <title>Browarnia Mikołaja</title>
+</head>
+
+<body>
+    <header>
+        <h1>Browarnia Mikołaja</h1>
+    </header>
+    <aside>
+        <div>
+            <h1>MENU</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="form.html">Formularz</a>
+                <a href="table.html">Piwa</a>
+                <a href="calculator.html">Kalkulator goryczki</a>
+                <a href="map.html">Mapa browarni</a>
+                <a href="gallery.html">Galeria piw</a>
+                <a href="presentation.html">Prezentacja</a>
+            </nav>
+        </div>
+    </aside>
+    <main>
+        <img src="../public/brewery_map.png" alt="Plan Browarni" usemap="#brewerymap"
+            style="max-width:100%;height:auto;">
+
+        <map name="brewerymap">
+            <!-- Kadź zacierna -->
+            <area shape="poly" coords="100,100, 450,100, 450,900, 100,900" href="map/kadz_zacierna.html"
+                alt="Kadź zacierna">
+
+            <!-- Tanki fermentacyjne -->
+            <area shape="poly" coords="500,100, 1100,100, 1100,900, 500,900" href="map/fermentacja.html"
+                alt="Tanki fermentacyjne">
+
+            <!-- Linia rozlewnicza -->
+            <area shape="poly" coords="1150,100, 1450,100, 1450,900, 1150,900" href="map/rozlewnia.html"
+                alt="Linia rozlewnicza">
+        </map>
+    </main>
+    <aside>
+        <div id="stats-widget">
+            <h2>Liczba wizyt</h2>
+            <p id="visits">0</p>
+            <h2>Czas na stronie</h2>
+            <p id="timeSpent">00:00:00</p>
+        </div>
+    </aside>
+    <footer>
+        <h1>Autor: Mikołaj Kowalczyk</h1>
+        <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka</p>
+    </footer>
+    <script src="stats.js"></script>
+</body>
+
+</html>
