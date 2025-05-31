@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/presentation.css">
+    <title>Prezentacja - Browarnia Mikołaja</title>
+    
+</head>
+
+<body>
+    <header>
+        <h1>Prezentacja - Browarnia Mikołaja</h1>
+    </header>
+    <aside>
+        <div>
+            <h1>MENU</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="form.html">Formularz</a>
+                <a href="table.html">Piwa</a>
+                <a href="calculator.html">Kalkulator goryczki</a>
+                <a href="map.html">Mapa browarni</a>
+                <a href="gallery.html">Galeria piw</a>
+                <a href="presentation.html">Prezentacja</a>
+            </nav>
+        </div>
+    </aside>
+    <main>
+        <div class="presentation" tabindex="0">
+            <div class="slide active" id="slide1">
+                <h2>Wprowadzenie</h2>
+                <p>Witaj w prezentacji o Browarni Mikołaja. Poznaj historię, proces warzenia i naszą ofertę.</p>
+            </div>
+            <div class="slide" id="slide2">
+                <h2>Historia</h2>
+                <p>Browarnia powstała w 2020 roku jako mały projekt pasjonatów piwowarstwa rzemieślniczego.</p>
+            </div>
+            <div class="slide" id="slide3">
+                <h2>Proces Warzenia</h2>
+                <p>Przechodzimy przez etapy zacierania, gotowania, fermentacji i butelkowania, dbając o jakość na każdym kroku.</p>
+            </div>
+            <div class="slide" id="slide4">
+                <h2>Nasze Piwa</h2>
+                <p>Oferujemy szeroką gamę stylów: od lagerów, przez pszeniczne, IPA, aż po piwa sezonowe.</p>
+            </div>
+            <div class="slide" id="slide5">
+                <h2>Kontakt</h2>
+                <p>Zapraszamy do odwiedzenia naszej browarni, degustacji oraz współpracy. Skontaktuj się: kontakt@browarniamikolaja.pl</p>
+            </div>
+            <div class="instructions">Użyj strzałek ⬅️ ➡️, aby przejść między slajdami</div>
+        </div>
+    </main>
+    <aside>
+        <div id="stats-widget">
+            <h2>Liczba wizyt</h2>
+            <p id="visits">0</p>
+            <h2>Czas na stronie</h2>
+            <p id="timeSpent">00:00:00</p>
+        </div>
+    </aside>
+    <footer>
+        <h1>Autor: Mikołaj Kowalczyk</h1>
+        <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka</p>
+    </footer>
+    <script src="stats.js"></script>
+    <script>
+
+        // nawigacja strzałkami
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            let current = 0;
+            function show(index) {
+                slides[current].classList.remove('active');
+                current = (index + slides.length) % slides.length;
+                slides[current].classList.add('active');
+            }
+            document.body.addEventListener('keydown', e => {
+                if (e.key === 'ArrowRight') show(current + 1);
+                if (e.key === 'ArrowLeft') show(current - 1);
+            });
+
+            document.querySelector('.presentation').focus();
+        });
+    </script>
+</body>
+
+</html>

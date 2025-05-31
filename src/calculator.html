@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/calculator.css">
+    <title>Browarnia Mikołaja</title>
+</head>
+
+<body>
+    <header>
+        <h1>Browarnia Mikołaja</h1>
+    </header>
+    <aside>
+        <div>
+            <h1>MENU</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="form.html">Formularz</a>
+                <a href="table.html">Piwa</a>
+                <a href="calculator.html">Kalkulator goryczki</a>
+                <a href="map.html">Mapa browarni</a>
+                <a href="gallery.html">Galeria piw</a>
+                <a href="presentation.html">Prezentacja</a>
+            </nav>
+        </div>
+    </aside>
+    <main>
+
+        <h2>Kalkulator goryczki (IBU Tinseth)</h2>
+        <form id="ibuForm">
+            <label>Waga chmielu (g):
+                <input type="number" id="hopWeight" required min="0" step="0.1">
+            </label>
+            <label>% kwasów alfa:
+                <input type="number" id="alphaAcid" required min="0" step="0.1">
+            </label>
+            <label>Czas gotowania (min):
+                <input type="number" id="boilTime" required min="0" step="1">
+            </label>
+            <label>Objętość wsadu (l):
+                <input type="number" id="batchVolume" required min="0.1" step="0.1">
+            </label>
+            <label>Gęstość brzeczki (SG):
+                <input type="number" id="wortGravity" required min="1.000" step="0.001">
+            </label>
+            <button type="submit">Oblicz IBU</button>
+        </form>
+
+        <div id="ibuResult">
+            <p>IBU: <strong id="ibuValue">-</strong></p>
+        </div>
+
+        <canvas id="utilizationChart" width="600" height="200"></canvas>
+
+    </main>
+    <aside>
+        <div id="stats-widget">
+            <h2>Liczba wizyt</h2>
+            <p id="visits">0</p>
+            <h2>Czas na stronie</h2>
+            <p id="timeSpent">00:00:00</p>
+        </div>
+    </aside>
+    <footer>
+        <h1>Autor: Mikołaj Kowalczyk</h1>
+        <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka</p>
+    </footer>
+    <script src="stats.js"></script>
+    <script>
+        document.getElementById('ibuForm').addEventListener('submit', e => {
+            e.preventDefault();
+
+            // 1) Pobierz wartości
+            const W = parseFloat(hopWeight.value),      // g
+                AA = parseFloat(alphaAcid.value) / 100,
+                T = parseFloat(boilTime.value),       // min
+                V = parseFloat(batchVolume.value),    // l
+                SG = parseFloat(wortGravity.value);   // np. 1.050
+
+            // 2) Funkcja Tinseth: wykorzystanie (%)
+            function utilization(time) {
+                return (1 - Math.exp(-0.04 * time)) / 4.15;
+            }
+
+            // 3) Oblicz IBU
+            const U = utilization(T);
+            const ibu = (W * AA * 1000 * U * 0.75) / V; // 0.75 = stała korekcyjna Tinseth
+            ibuValue.textContent = ibu.toFixed(1);
+
+            // 4) Wykres: zbierz punkty (co 5 min)
+            const ctx = utilizationChart.getContext('2d');
+            const times = [], utils = [];
+            for (let t = 0; t <= T; t += 5) {
+                times.push(t);
+                utils.push(utilization(t));
+            }
+
+            // 5) Narysuj proste osie i linię
+            ctx.clearRect(0, 0, 600, 200);
+            // ramka
+            ctx.strokeStyle = 'white';
+            ctx.strokeRect(40, 10, 550, 180);
+            // osie
+            ctx.beginPath();
+            ctx.moveTo(40, 190); ctx.lineTo(40, 10);
+            ctx.moveTo(40, 190); ctx.lineTo(590, 190);
+            ctx.stroke();
+            // linia wykorzystania
+            ctx.beginPath();
+            times.forEach((t, i) => {
+                const x = 40 + (550 * t / T);
+                const y = 190 - (180 * utils[i]);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.strokeStyle = 'lightgreen';
+            ctx.stroke();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <title>Browarnia Mikołaja</title>
+</head>
+
+<body>
+    <header>
+        <h1>Browarnia Mikołaja</h1>
+    </header>
+    <aside>
+        <div>
+            <h1>MENU</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="form.html">Formularz</a>
+                <a href="table.html">Piwa</a>
+                <a href="calculator.html">Kalkulator goryczki</a>
+                <a href="map.html">Mapa browarni</a>
+                <a href="gallery.html">Galeria piw</a>
+                <a href="presentation.html">Prezentacja</a>
+            </nav>
+        </div>
+    </aside>
+    <main>
+
+        <table id="beerTable">
+            <table id="beerTable">
+                <thead>
+                    <tr>
+                        <th rowspan="2">id</th>
+                        <th colspan="3">Informacje o piwie</th>
+                        <th colspan="2">Szczegóły</th>
+                    </tr>
+                    <tr>
+                        <th>marka</th>
+                        <th>nazwa</th>
+                        <th>%</th>
+                        <th>zdjęcie</th>
+                        <th>objętość</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- dane piw -->
+                </tbody>
+            </table>
+
+    </main>
+    <aside>
+        <div id="stats-widget">
+            <h2>Liczba wizyt</h2>
+            <p id="visits">0</p>
+            <h2>Czas na stronie</h2>
+            <p id="timeSpent">00:00:00</p>
+        </div>
+    </aside>
+    <footer>
+        <h1>Autor: Mikołaj Kowalczyk</h1>
+        <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka</p>
+    </footer>
+    <script src="stats.js"></script>
+    <script>
+
+        const beers = [{ "name": "Tyskie Gronie", "brand": " Tyskie", "alcohol": 5.2, "imageUrl": "1.png", "volume": 500 }, { "name": "Tyskie Pilzner", "brand": " Tyskie", "alcohol": 4.9, "imageUrl": "2.png", "volume": 500 }, { "name": "Lech Premium", "brand": " Lech", "alcohol": 5, "imageUrl": "3.png", "volume": 500 }, { "name": "Lech Easy", "brand": " Lech", "alcohol": 4.2, "imageUrl": "4.png", "volume": 330 }, { "name": "Lech Pils", "brand": " Lech", "alcohol": 5.5, "imageUrl": "5.png", "volume": 500 }, { "name": "Lech Lime & Mint", "brand": " Lech", "alcohol": 4, "imageUrl": "6.png", "volume": 500 }, { "name": "Lech Apple & Lemongrass", "brand": " Lech", "alcohol": 4, "imageUrl": "7.png", "volume": 500 }, { "name": "Lech Cherry & Plum", "brand": " Lech", "alcohol": 4, "imageUrl": "8.png", "volume": 500 }, { "name": "Lech Free", "brand": " Lech", "alcohol": 0, "imageUrl": "9.png", "volume": 500 }, { "name": "Lech 0.0 Hydrate Lychee Lemon", "brand": " Lech", "alcohol": 0, "imageUrl": "10.png", "volume": 500 }, { "name": "Lech 0.0 Active Mango Lemon", "brand": " Lech", "alcohol": 0, "imageUrl": "11.png", "volume": 500 }, { "name": "Lech Free 0.0% Lime & Mint", "brand": " Lech", "alcohol": 0, "imageUrl": "12.png", "volume": 500 }, { "name": "Lech Free 0.0% Watermelon & Mint", "brand": " Lech", "alcohol": 0, "imageUrl": "13.png", "volume": 500 }, { "name": "Lech Free 0.0% Passion Fuit & Melon", "brand": " Lech", "alcohol": 0, "imageUrl": "14.png", "volume": 500 }, { "name": "Lech Free 0.0% Dark Fruits Sour", "brand": " Lech", "alcohol": 0, "imageUrl": "15.png", "volume": 500 }, { "name": "Lech Free 0.0% Apple & Lemongrass", "brand": " Lech", "alcohol": 0, "imageUrl": "16.png", "volume": 500 }, { "name": "Żubr", "brand": " Żubr", "alcohol": 6, "imageUrl": "17.png", "volume": 500 }, { "name": "Książęce IPA", "brand": " Książęce", "alcohol": 5.4, "imageUrl": "18.png", "volume": 500 }, { "name": "Książęce IPA alcohol-free", "brand": " Książęce", "alcohol": 0, "imageUrl": "19.png", "volume": 500 }, { "name": "Książęce Cherry Ale", "brand": " Książęce", "alcohol": 4.3, "imageUrl": "20.png", "volume": 500 }, { "name": "Książęce Porter", "brand": " Książęce", "alcohol": 8, "imageUrl": "21.png", "volume": 500 }, { "name": "Książęce Złote Pszeniczne", "brand": " Książęce", "alcohol": 4.9, "imageUrl": "22.png", "volume": 500 }, { "name": "Książęce Złote Pszeniczne alcohol-free", "brand": " Książęce", "alcohol": 0, "imageUrl": "23.png", "volume": 500 }, { "name": "Książęce Czerwony Lager", "brand": " Książęce", "alcohol": 4.9, "imageUrl": "24.png", "volume": 500 }, { "name": "Książęce Ciemne Łagodne", "brand": " Książęce", "alcohol": 4.1, "imageUrl": "25.png", "volume": 500 }, { "name": "Książęce Lager", "brand": " Książęce", "alcohol": 5, "imageUrl": "26.png", "volume": 500 }, { "name": "Dębowe Dojrzałe Mocne", "brand": " Dębowe", "alcohol": 7, "imageUrl": "27.png", "volume": 500 }, { "name": "HARDMADE Creamy Mango", "brand": " HARDMADE", "alcohol": 0, "imageUrl": "28.png", "volume": 330 }, { "name": "HARDMADE Cherry Choco", "brand": " HARDMADE", "alcohol": 4.5, "imageUrl": "29.png", "volume": 330 }, { "name": "HARDMADE Blackberry Vanilla", "brand": " HARDMADE", "alcohol": 4.5, "imageUrl": "30.png", "volume": 330 }, { "name": "HARDMADE Exotic Kumkwat", "brand": " HARDMADE", "alcohol": 4.5, "imageUrl": "31.png", "volume": 330 }, { "name": "HARDMADE Yuzu Lemon", "brand": " HARDMADE", "alcohol": 4.5, "imageUrl": "32.png", "volume": 330 }, { "name": "HARDMADE Cool Passion Fruit", "brand": " HARDMADE", "alcohol": 4.5, "imageUrl": "33.png", "volume": 330 }, { "name": "HARDMADE 0.0% Citrus Ice Tea Crush", "brand": " HARDMADE", "alcohol": 0, "imageUrl": "34.png", "volume": 330 }, { "name": "Captain Jack Original", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "35.png", "volume": 330 }, { "name": "Captain Jack Exotic Daiquiri", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "36.png", "volume": 330 }, { "name": "Captain Jack Caribbean Sour", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "37.png", "volume": 330 }, { "name": "Captain Jack Party Lime", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "38.png", "volume": 330 }, { "name": "Captain Jack Mojito", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "39.png", "volume": 330 }, { "name": "Captain Jack On The Beach", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "40.png", "volume": 330 }, { "name": "Captain Jack Mango Daiquiri", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "41.png", "volume": 330 }, { "name": "Captain Jack Tropical Sunrise", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "42.png", "volume": 330 }, { "name": "Captain Jack Blue Lagoon", "brand": " Captain Jack", "alcohol": 6, "imageUrl": "43.png", "volume": 330 }, { "name": "PERONI NASTRO AZZURRO", "brand": " PERONI", "alcohol": 5, "imageUrl": "44.png", "volume": 330 }, { "name": "PERONI NASTRO AZZURRO 0.0%", "brand": " PERONI", "alcohol": 0, "imageUrl": "45.png", "volume": 330 }, { "name": "Wojak", "brand": " Wojak", "alcohol": 5, "imageUrl": "46.png", "volume": 500 }, { "name": "Pilsner Urquell", "brand": " Pilsner Urquell", "alcohol": 4.4, "imageUrl": "47.png", "volume": 500 }, { "name": "Kozel Ležák", "brand": " Kozel", "alcohol": 4.6, "imageUrl": "48.png", "volume": 500 }, { "name": "Kozel Černý", "brand": " Kozel", "alcohol": 3.8, "imageUrl": "49.png", "volume": 500 }, { "name": "Kozel 0.0%", "brand": " Kozel", "alcohol": 0, "imageUrl": "50.png", "volume": 500 }, { "name": "Kozel Bilý Lehký", "brand": " Kozel", "alcohol": 3.5, "imageUrl": "51.png", "volume": 500 }]
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const tbody = document.querySelector('#beerTable tbody');
+
+            beers.forEach((beer, index) => {
+
+                const tr = document.createElement('tr');
+
+                // id
+                const tdId = document.createElement('td');
+                tdId.textContent = index + 1;
+                tr.appendChild(tdId);
+
+                // marka
+                const tdBrand = document.createElement('td');
+                tdBrand.textContent = beer.brand.trim();
+                tr.appendChild(tdBrand);
+
+                // nazwa
+                const tdName = document.createElement('td');
+                tdName.textContent = beer.name;
+                tr.appendChild(tdName);
+
+
+                // zawartość alkoholu
+                const tdAlcohol = document.createElement('td');
+                tdAlcohol.textContent = beer.alcohol;
+                tr.appendChild(tdAlcohol);
+
+                // zdjęcie
+                const tdImage = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = `../public/beers/${beer.imageUrl}`;
+                img.alt = beer.name;
+                tdImage.appendChild(img);
+                tr.appendChild(tdImage);
+
+                // objętość
+                const tdVolume = document.createElement('td');
+                tdVolume.textContent = beer.volume;
+                tr.appendChild(tdVolume);
+
+                tbody.appendChild(tr);
+            })
+        })
+    </script>
+</body>
+
+</html>

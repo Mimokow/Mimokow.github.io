@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <title>Browarnia Mikołaja</title>
+</head>
+
+<body>
+    <header>
+        <h1>Browarnia Mikołaja</h1>
+    </header>
+    <aside>
+        <div>
+            <h1>MENU</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="form.html">Formularz</a>
+                <a href="table.html">Piwa</a>
+                <a href="calculator.html">Kalkulator goryczki</a>
+                <a href="map.html">Mapa browarni</a>
+                <a href="gallery.html">Galeria piw</a>
+                <a href="presentation.html">Prezentacja</a>
+            </nav>
+        </div>
+    </aside>
+    <main>
+        <div class="gallery">
+            <img src="../public/beers/1.png" id="gallery_img">
+            <diV class="button-group">
+                <button id="next">Następny</button>
+                <button id="previous">Poprzedni</button>
+                <button id="first">Pierwszy</button>
+                <button id="last">Ostatni</button>
+            </diV>
+        </div>
+    </main>
+    <aside>
+        <div id="stats-widget">
+            <h2>Liczba wizyt</h2>
+            <p id="visits">0</p>
+            <h2>Czas na stronie</h2>
+            <p id="timeSpent">00:00:00</p>
+        </div>
+    </aside>
+    <footer>
+        <h1>Autor: Mikołaj Kowalczyk</h1>
+        <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka</p>
+    </footer>
+    <script src="stats.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const image = document.getElementById("gallery_img");
+            let imageId = 1;
+
+            function switchImage(increment){
+                let newImageId = imageId + increment;
+
+                if (newImageId < 1)
+                    newImageId = 1;
+
+                if (newImageId > 51)
+                    newImageId = 51;
+
+                imageId = newImageId;
+                image.src = `../public/beers/${imageId}.png`;
+            }
+
+            const buttons = {
+                "next": document.getElementById("next"),
+                "previous": document.getElementById("previous"),
+                "first": document.getElementById("first"),
+                "last": document.getElementById("last")
+            }
+
+            buttons.next.addEventListener("click", () => switchImage(1));
+            buttons.previous.addEventListener("click", () => switchImage(-1));
+            buttons.first.addEventListener("click", () => switchImage(-51));
+            buttons.last.addEventListener("click", () => switchImage(51));
+        
+        })
+
+    </script>
+</body>
+
+</html>

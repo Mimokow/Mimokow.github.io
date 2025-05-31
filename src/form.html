@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <title>Browarnia Mikołaja</title>
+</head>
+<body>
+    <header>
+        <h1>Browarnia Mikołaja</h1>
+    </header>
+    <aside>
+        <div>
+            <h1>MENU</h1>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="form.html">Formularz</a>
+                <a href="table.html">Piwa</a>
+                <a href="calculator.html">Kalkulator goryczki</a>
+                <a href="map.html">Mapa browarni</a>
+                <a href="gallery.html">Galeria piw</a>
+                <a href="presentation.html">Prezentacja</a>
+            </nav>
+        </div>
+    </aside>
+    <main>
+        <h1>Zostaw informacje o sobie</h1>
+        <form>
+            <div id="personal_info">
+                <h2>Dane osobowe</h2>
+
+                <label for="name">Imię</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="surname">Nazwisko</label>
+                <input type="text" id="surname" name="surname" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div id="beer">
+                <h2>Ulubione piwo</h2>
+
+                <label for="beer_brand">Marka piwa</label>
+                <select name="beer_brand" id="beer_brand" required>
+                    <option></option>
+                    <option>Captain Jack</option>
+                    <option>Dębowe</option>
+                    <option>HARDMADE</option>
+                    <option>Kozel</option>
+                    <option>Książęce</option>
+                    <option>Lech</option>
+                    <option>Pilsner Urquell</option>
+                    <option>Tyskie</option>
+                    <option>Żubr</option>
+                </select>
+
+                <label for="beer_name">Nazwa piwa</label>
+                <input type="text" id="beer_name" name="beer_name" required>
+
+                <label>Opakowanie</label>
+                <div>
+                    <input type="radio" id="tin" name="packaging" value="tin" checked>
+                    <label for="tin">puszka</label>
+                    <input type="radio" id="bottle" name="packaging" value="bottle">
+                    <label for="bottle">butelka</label>
+                </div>
+
+                <input type="checkbox" id="alcohol" name="alcohol">
+                <label for="alcohol">Alkoholowe</label>
+            </div>
+            <div id="feedback">
+                <label for="feedback">Opisz swoje wrażenia</label>
+                <textarea id="feedback_text" name="feedback"></textarea>
+            </div>
+            <div id="submit">
+                <h2>Dzięki za wypełnienie formularza</h2>
+                <button type="submit">Wyślij</button>
+            </div>
+        </form>
+    </main>
+    <aside>
+        <div id="stats-widget">
+            <h2>Liczba wizyt</h2>
+            <p id="visits">0</p>
+            <h2>Czas na stronie</h2>
+            <p id="timeSpent">00:00:00</p>
+        </div>
+    </aside>
+    <footer>
+        <h1>Autor: Mikołaj Kowalczyk</h1>
+        <p>Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka</p>
+    </footer>
+    <script src="stats.js"></script>
+</body>
+</html>

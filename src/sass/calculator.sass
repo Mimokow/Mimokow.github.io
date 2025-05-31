@@ -1,0 +1,55 @@
+main
+    padding: 2em
+    color: white
+
+    h2
+        text-align: center
+        margin-bottom: 1em
+
+    #ibuForm
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+        gap: 1.5em
+
+        label
+            display: flex
+            flex-direction: column
+            font-size: 0.9em
+
+            input
+                margin-top: 0.3em
+                padding: 0.5em
+                border: 1px solid white
+                border-radius: 8px
+                background-color: #111
+                color: white
+
+        button[type="submit"]
+            grid-column: 1 / -1
+            padding: 0.75em 1em
+            border: 2px solid white
+            border-radius: 10px
+            background-color: white
+            color: black
+            font-size: 1em
+            cursor: pointer
+            transition: background-color 0.2s, color 0.2s
+            &:hover
+                background-color: grey
+                color: white
+
+    #ibuResult
+        text-align: center
+        margin-top: 1.5em
+
+        #ibuValue
+            font-size: 2em
+            font-weight: bold
+
+    #utilizationChart
+        display: block
+        margin: 2em auto
+        background-color: #111
+        border: 2px solid white
+        border-radius: 8px
+

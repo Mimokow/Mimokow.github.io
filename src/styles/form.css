@@ -1,0 +1,103 @@
+main form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+main form > #personal_info,
+main form > #beer,
+main form > #feedback,
+main form > #submit {
+  border: 3px solid white;
+  border-radius: 20px;
+  padding: 2em;
+  box-sizing: border-box;
+}
+main form > #personal_info h2,
+main form > #beer h2,
+main form > #feedback h2,
+main form > #submit h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
+main form > #personal_info:not(#submit) label,
+main form > #beer:not(#submit) label,
+main form > #feedback:not(#submit) label,
+main form > #submit:not(#submit) label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+main form > #personal_info:not(#submit) input[type=text],
+main form > #personal_info:not(#submit) input[type=email],
+main form > #personal_info:not(#submit) select,
+main form > #personal_info:not(#submit) textarea,
+main form > #beer:not(#submit) input[type=text],
+main form > #beer:not(#submit) input[type=email],
+main form > #beer:not(#submit) select,
+main form > #beer:not(#submit) textarea,
+main form > #feedback:not(#submit) input[type=text],
+main form > #feedback:not(#submit) input[type=email],
+main form > #feedback:not(#submit) select,
+main form > #feedback:not(#submit) textarea,
+main form > #submit:not(#submit) input[type=text],
+main form > #submit:not(#submit) input[type=email],
+main form > #submit:not(#submit) select,
+main form > #submit:not(#submit) textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 1em;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
+main form > #personal_info:not(#submit) textarea,
+main form > #beer:not(#submit) textarea,
+main form > #feedback:not(#submit) textarea,
+main form > #submit:not(#submit) textarea {
+  height: auto;
+  min-height: 10em;
+}
+main form > #beer > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+main form > #beer > div input[type=radio] {
+  margin-right: 0.5em;
+}
+main form > #beer > div label {
+  margin-right: 1em;
+  font-weight: normal;
+}
+main form input[type=checkbox] {
+  margin-right: 0.5em;
+}
+main form label[for=alcohol] {
+  display: inline;
+  font-weight: normal;
+}
+main form > #submit {
+  text-align: center;
+}
+main form > #submit button {
+  padding: 0.75em 2em;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+main form > #submit button:hover {
+  background-color: grey;
+  border-color: grey;
+  color: white;
+}
+
+/*# sourceMappingURL=form.css.map */
